@@ -173,7 +173,10 @@ article:hover .categor
 /* *****loading******* */
 
 
-
+.loading
+{
+  z-index: 9999;
+}
 .main{
     width:330px;
     height:330px;

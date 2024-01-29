@@ -198,6 +198,16 @@ function showcategoriesData(categories){
   }
   document.querySelector('.row-data').innerHTML = data
 }
+//********check for "data-name-of-Category" attribute to show meals data by using getAPTByCategory func and then API Search*********** */ 
+function getDataCategoryName(e){
+  e.preventDefault();
+  if(e.target.hasAttribute('data-name-of-Category'))
+  {
+    let dataNameOfCategory = e.target.getAttribute('data-name-of-Category')
+    getAPTByCategory(dataNameOfCategory)
+  }
+}
+
 //*************get API By Name to select it in showSearchData  function ************* */
   async function getAPTByName(name){
       let api = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`)
@@ -238,6 +248,7 @@ let contentData =  document.querySelector('.row-data')
 contentData.addEventListener('click', function(e){
   getDataId(e)
   getDataAreaName(e)
+  getDataCategoryName(e)
   getDataingredientsName(e)
 })
   //*************show Data************* */
